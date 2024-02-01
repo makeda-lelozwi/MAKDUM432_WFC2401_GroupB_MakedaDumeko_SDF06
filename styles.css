@@ -1,0 +1,217 @@
+html {
+  font-size: 10px;
+}
+
+*,
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-color: #fafafa; 
+  color: #262626;
+  /* explain why we need to use rem */
+  padding-bottom: 3rem;
+}
+
+img {
+  display: block;
+}
+
+.container {
+  /* again, why rem and not vw */
+  max-width: 93.5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn {
+  display: inline-block;
+  font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: 0.5rem auto #4d90fe;
+}
+
+/* why do we have a class called visually-hidden in the first place? */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  /* what does this mean? */
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.profile {
+  padding: 5rem 0;
+}
+
+/* why do we have this pseudo-element? */
+.profile::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* styling for the container that the profile-image goes in  */
+.profile-image {
+  /* why? */
+  float: left;
+  width: calc(33.33% - 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+/* styling for the profile image itself */
+.profile-image img {
+  border-radius: 50%
+}
+
+.profile-user-settings, profile-stats, profile-bio {
+  float: left;
+  width: calc(66.6% - 2rem)
+} 
+
+.profile-user-settings {
+  margin-top: 1.1rem;
+}
+
+.profile-user-name {
+  display: inline-block;
+  font-size: 3.2rem;
+  font-weight: 300;
+}
+
+.profile-edit-btn {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  border: 0.1rem solid #dbdbdb;
+  border-radius: 0.3rem;
+  padding: 0 2.4rem;
+  margin-left: 2rem;
+}
+
+.profile-settings-btn {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.profile-stats {
+  margin-top: 2.3rem;
+}
+
+.profile-stats li {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-right: 4rem;
+  cursor: pointer;
+}
+
+.profile-stats li:last-of-type {
+  margin-right: 0;
+}
+
+.profile-bio {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 2.3rem;
+}
+
+.profile-real-name,
+.profile-stat-count,
+.profile-edit-btn {
+  font-weight: 600;
+}
+
+.gallery {
+  display: flex;
+  /* each image appears one after the other and the interface is mobile-friendly */
+  flex-wrap: wrap;
+  margin: -1rem -1rem;
+  padding-bottom: 3rem;
+}
+
+.gallery-item {
+  position: relative;
+  flex: 1 0 22rem;
+  margin: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  /* width: 100px;
+  height: 100px; */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item:hover,
+.gallery-item-info,
+gallery-item:focus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item-info {
+  display: none;
+
+}
+
+.gallery-item-info li {
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.gallery-item-likes {
+  margin-right: 2.2rem;
+}
+
+.gallery-item-type {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.fa-clone,
+.fa-comment {
+  transform: rotateY(180deg);
+}
+
+/* At this point: whenever I hover over the posts, it shows the next post on top */
+
+.loader {
+  width: 5rem;
+  height: 5rem;
+  border: 0.6rem solid #999;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: loader 500ms linear infinite;
+}
+
+
