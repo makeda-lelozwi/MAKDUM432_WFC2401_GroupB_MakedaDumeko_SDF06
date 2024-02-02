@@ -13,7 +13,6 @@ body {
   min-height: 100vh;
   background-color: #fafafa; 
   color: #262626;
-  /* explain why we need to use rem */
   padding-bottom: 3rem;
 }
 
@@ -22,7 +21,6 @@ img {
 }
 
 .container {
-  /* again, why rem and not vw */
   max-width: 93.5rem;
   margin: 0 auto;
   padding: 0 2rem;
@@ -46,7 +44,6 @@ img {
   padding: 5rem 0;
 }
 
-/* why do we have this pseudo-element? */
 .profile::after {
   content: "";
   display: block;
@@ -55,7 +52,6 @@ img {
 
 /* styling for the container that the profile-image goes in  */
 .profile-image {
-  /* why? */
   float: left;
   width: calc(33.33% - 1rem);
   display: flex;
@@ -209,12 +205,9 @@ profile-bio {
   position: absolute !important;
   height: 1px;
   width: 1px;
-  /* what does this mean? */
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
 }
-
-/* At this point: whenever I hover over the posts, it shows the next post on top */
 
 /* The Loader */
 /* This is the thingy at the bottom of the screen to show that the posts are finished */
@@ -233,7 +226,6 @@ profile-bio {
       transform: rotate(360deg);
   }
 }
-
 
 /* Media Query */
 @media screen and (max-width: 40rem) {
@@ -316,7 +308,7 @@ profile-bio {
 }
 }
 
-/* End of Media Query (I'm starting to get seriously confused with all this CSS */
+
 
   @media (max-width: 40rem) {
       .profile {
