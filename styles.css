@@ -42,16 +42,6 @@ img {
   outline: 0.5rem auto #4d90fe;
 }
 
-/* why do we have a class called visually-hidden in the first place? */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  /* what does this mean? */
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-
 .profile {
   padding: 5rem 0;
 }
@@ -79,7 +69,9 @@ img {
   border-radius: 50%
 }
 
-.profile-user-settings, profile-stats, profile-bio {
+.profile-user-settings, 
+profile-stats, 
+profile-bio {
   float: left;
   width: calc(66.6% - 2rem)
 } 
@@ -137,9 +129,11 @@ img {
   font-weight: 600;
 }
 
+
+/* The Gallery */
 .gallery {
   display: flex;
-  /* each image appears one after the other and the interface is mobile-friendly */
+  /*each image appears one after the other and the interface is mobile-friendly*/
   flex-wrap: wrap;
   margin: -1rem -1rem;
   padding-bottom: 3rem;
@@ -151,8 +145,7 @@ img {
   margin: 1rem;
   color: #ffffff;
   cursor: pointer;
-  /* width: 100px;
-  height: 100px; */
+  width: 285px;
 }
 
 .gallery-image {
@@ -161,29 +154,39 @@ img {
   object-fit: cover;
 }
 
-.gallery-item:hover,
+.gallery-item:hover
 .gallery-item-info,
-gallery-item:focus {
+.gallery-item:focus,
+.gallery-item-info { 
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   top: 0;
+  position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.568); 
 }
-
-.gallery-item-info {
+  
+ .gallery-item-info {
   display: none;
+} 
 
+.gallery-item-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
 
 .gallery-item-info li {
   display: inline-block;
   font-size: 1.7rem;
   font-weight: 600;
+  margin: right 5px;
 }
+
+
 
 .gallery-item-likes {
   margin-right: 2.2rem;
@@ -202,8 +205,19 @@ gallery-item:focus {
   transform: rotateY(180deg);
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  /* what does this mean? */
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
 /* At this point: whenever I hover over the posts, it shows the next post on top */
 
+/* The Loader */
+/* This is the thingy at the bottom of the screen to show that the posts are finished */
 .loader {
   width: 5rem;
   height: 5rem;
@@ -214,4 +228,124 @@ gallery-item:focus {
   animation: loader 500ms linear infinite;
 }
 
+@keyframes loader {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* Media Query */
+@media screen and (max-width: 40rem) {
+  .profile {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 4rem 0;
+}
+
+.profile::after {
+  display: none;
+}
+
+.profile-image,
+.profile-user-settings,
+.profile-bio,
+.profile-stats {
+  float: none;
+  width: auto;
+}
+
+.profile-image img {
+  width: 7.7rem;
+}
+
+.profile-user-settings {
+  flex-basis: calc(100% - 10.7rem);
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.profile-user-name {
+  font-size: 2.2rem;
+}
+
+.profile-edit-btn {
+  order: 1;
+  padding: 0;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.profile-edit-btn {
+  margin-left: 0;
+}
+
+.profile-bio {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.profile-edit-btn,
+.profile-bio,
+.profile-stats {
+  flex-basis: 100%;
+}
+
+.profile-stats {
+  order: 1;
+  margin-top: 1.5rem;
+}
+
+.profile-stats ul {
+  display: flex;
+  text-align: center;
+  padding: 1.2rem 0;
+  border-top: 0.1rem solid #dadada;
+  border-bottom: 0.1rem solid #dadada;
+}
+
+.profile-stats li {
+  font-size: 1.4rem;
+  flex: 1;
+  margin: 0;
+}
+
+.profile-stat-count {
+  display: block;
+}
+}
+
+/* End of Media Query (I'm starting to get seriously confused with all this CSS */
+
+  @media (max-width: 40rem) {
+      .profile {
+          grid-template-columns: auto 1fr;
+          grid-row-gap: 1.5rem;
+      }
+
+      .profile-image {
+          grid-row: 1 / 2;
+      }
+
+      .profile-user-settings {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-gap: 1rem;
+      }
+
+      .profile-edit-btn,
+      .profile-stats,
+      .profile-bio {
+          grid-column: 1 / -1;
+      }
+
+      .profile-user-settings,
+      .profile-edit-btn,
+      .profile-settings-btn,
+      .profile-bio,
+      .profile-stats {
+          margin: 0;
+      }
+  }
 
