@@ -4,7 +4,7 @@
 ## **6.15 CodeSpace Pets Instagram Profile Project**
 
 ### Overview
-For the SDF06 submission we were tasked with using CSS to develope a simplified Instagram profile. We had to use CSS selectors (like @Media) and properties (like flex-wrap) to make the profile visually appealing and responsive to different screen-sizes. 
+For the SDF06 submission we were tasked with using CSS to develop a simplified Instagram profile. We had to use CSS selectors (like @Media) and properties (like flex-wrap) to make the profile visually appealing and responsive to different screen-sizes. 
 
 ### Reflections
 
