@@ -238,6 +238,7 @@ profile-bio {
 
 /* Media Query */
 @media screen and (max-width: 40rem) {
+  /* on screens that are 40rem and below, these are the styles that will be applied */
   .profile {
       display: flex;
       flex-wrap: wrap;
@@ -319,13 +320,18 @@ profile-bio {
 
 
 
-  @media (max-width: 40rem) {
+@media (max-width: 40rem) {
       .profile {
+          /* auto: the size of the columns inherited by the size of the container */
+          /* fr talks about how many columns must be included in the grid and then how much of those parts the grid the element must take up */
           grid-template-columns: auto 1fr;
           grid-row-gap: 1.5rem;
       }
 
       .profile-image {
+          /* shorthand for the grid item's size and location within a grid row.  */
+          /* the profile image takes up grid rows 1 and 2 */
+          /* for this we could have said grid: span 2 */
           grid-row: 1 / 2;
       }
 
@@ -338,15 +344,16 @@ profile-bio {
       .profile-edit-btn,
       .profile-stats,
       .profile-bio {
+          /* says that these 3 elements must come 1 after the other until the bottom of the grid */
           grid-column: 1 / -1;
       }
 
-      .profile-user-settings,
+      /* .profile-user-settings,
       .profile-edit-btn,
       .profile-settings-btn,
       .profile-bio,
       .profile-stats {
           margin: 0;
-      }
+      } */
   }
 
