@@ -10,13 +10,15 @@ html {
 
 body {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+  /* the minimum height of the body is 100% of the viewport */
+  min-height: 100vh; 
   background-color: #fafafa; 
   color: #262626;
   padding-bottom: 3rem;
 }
 
 img {
+  /* allows us to have max. control over the styling of the image */
   display: block;
 }
 
@@ -37,6 +39,7 @@ img {
 }
 
 .btn:focus {
+  /* rem = size relative to font size */
   outline: 0.5rem auto #4d90fe;
 }
 
@@ -47,6 +50,7 @@ img {
 .profile::after {
   content: "";
   display: block;
+  /* the image must not float above any content after the profile div */
   clear: both;
 }
 
@@ -62,6 +66,7 @@ img {
 
 /* styling for the profile image itself */
 .profile-image img {
+  /* we should make the image itself round instead of the profile-image div because we would need to set its height at well */
   border-radius: 50%
 }
 
@@ -108,9 +113,9 @@ profile-bio {
   cursor: pointer;
 }
 
-.profile-stats li:last-of-type {
+/* .profile-stats li:last-of-type {
   margin-right: 0;
-}
+} */
 
 .profile-bio {
   font-size: 1.6rem;
@@ -129,31 +134,34 @@ profile-bio {
 /* The Gallery */
 .gallery {
   display: flex;
-  /*each image appears one after the other and the interface is mobile-friendly*/
+  /* allows the posts to wrap onto multiple lines if needed */
   flex-wrap: wrap;
+  /* negative margins shift the position in the opposite direction, so 1rem to the left and to the right */
   margin: -1rem -1rem;
   padding-bottom: 3rem;
 }
 
 .gallery-item {
   position: relative;
+  /* shorthand for flex-grow, flex-shrink, and flex-basis: sets the initial main width of the posts */
   flex: 1 0 22rem;
   margin: 1rem;
   color: #ffffff;
   cursor: pointer;
-  width: 285px;
+  /* width: 285px; */
 }
 
 .gallery-image {
   width: 100%;
   height: 100%;
+  /* If it's set to contain it will have white spaces within the div */
   object-fit: cover;
 }
 
-.gallery-item:hover
+.gallery-item:hover 
 .gallery-item-info,
-.gallery-item:focus,
-.gallery-item-info { 
+.gallery-item:focus /*,
+.gallery-item-info*/ { 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,7 +172,7 @@ profile-bio {
   background-color: rgba(0, 0, 0, 0.568); 
 }
   
- .gallery-item-info {
+.gallery-item-info {
   display: none;
 } 
 
@@ -172,6 +180,7 @@ profile-bio {
   list-style: none;
   padding: 0;
   margin: 0;
+  /* the property that makes content show up side-by-side */
   display: flex;
 }
 
@@ -193,7 +202,7 @@ profile-bio {
   top: 1rem;
   right: 1rem;
   font-size: 2.5rem;
-  text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
+  /* text-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1); */
 }
 
 .fa-clone,
